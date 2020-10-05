@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="Styles/detail.css">
     </head>
     <body>
-        <div id="main">
+        <div id="main" style="display:none;">
             <!---------------------- Search ---------------------->
             <div id="search">
                 <div class="div_grid_search">
@@ -70,5 +70,8 @@
         <script src="Scripts/functions_library.js"></script>
         <script src="https://unpkg.com/vue@next"></script>
         <script src="Scripts/search.js"></script>
+        <script>
+            document.getElementById('main').style.display = "";
+        </script>
     </body>
 </html>
