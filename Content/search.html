@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="title" content="MercadoLibre">
+        <title>MercadoLibre</title>
+        <link rel="stylesheet" href="Styles/search.css">
+        <link rel="stylesheet" href="Styles/main.css">
+        <link rel="stylesheet" href="Styles/item_list.css">
+        <link rel="stylesheet" href="Styles/detail.css">
+    </head>
+    <body>
+        <div id="main">
+            <!---------------------- Search ---------------------->
+            <div id="search">
+                <div class="div_grid_search">
+                    <div class="div_img_search" @click="goToInit"></div>
+                    <div class="sub_div_grid_search">
+                        <div class="div_inp_search">
+                            <input type="text" placeholder="Nunca dejes de buscar" v-model="tx" @keyup.enter="goToSearch">
+                            <div v-on:click="goToSearch"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <!----------------------  ---------------------->
+            <div v-if="showSearch">
+                <div class="breadcrumb">{{breadcrumb}}</div>
+                <div class="section">
+                    <div v-if="error != ''">{{error}}</div>
+                    <!---------------------- Items List ---------------------->
+                    <div v-if="showItemLists">
+                        <div v-for="(item, index) in items"
+                            :class="{divO_grid_item: index == items.length - 1, div_grid_item: index < items.length - 1}"
+                            @click="goToDetail(item.id, $event)">
+                            <div class="div_info_item">
+                                <img :src="item.picture" class="picture_item">
+                                <div class="item_info_item">
+                                    <div class="amount_item">$ {{item.price.amount}}</div>
+                                    <img v-if="item.free_shipping" src="Img/ic_shipping.png">
+                                    <div v-if="!item.free_shipping"></div>
+                                    <div class="title_item">{{item.title}}</div>
+                                </div>
+                            </div>
+                            <div class="state_name_item">{{item.state_name}}</div>
+                        </div>
+                    </div>
+                    <!---------------------- Detail ---------------------->
+                    <div v-if="showDetail">
+                        <div class="div_grid_detail">
+                            <img :src="item.picture" class="picture_detail">
+                            <div class="div_flex_detail">
+                                <div class="cs_detail">{{item.condition}} - {{item.sold_quantity}} vendidos</div>
+                                <div class="title_detail">{{item.title}}</div>
+                                <div class="amount_detail">$ {{item.price.amount}}<div>{{item.price.decimals}}</div></div>
+                                <div class="btn_detail">
+                                    <div>Comprar</div>
+                                </div>
+                            </div>
+                            <div class="dTitle_detail">Descripción del producto</div>
+                            <div></div>
+                            <div class="description_detail">{{item.description}}</div>
+                        </div>
+                    </div>
+                </div>  
+            </div> 
+        </div>
+        <script src="Scripts/axios.min.js"></script>
+        <script src="Scripts/functions_library.js"></script>
+        <script src="https://unpkg.com/vue@next"></script>
+        <script src="Scripts/search.js"></script>
+    </body>
+</html>

@@ -1,0 +1,61 @@
+.div_grid_detail{
+    display: grid;
+    grid-template-columns: 680px auto;
+    padding: 16px;
+}
+.picture_detail{
+    max-width: 680px;
+    min-width: 680px;
+    height: auto;
+    border-radius: 4px;
+}
+.div_flex_detail{
+    display: flex;
+    flex-direction: column;
+    margin-left: 16px
+}
+.cs_detail{
+    margin-top: 16px;
+    font-size: 14px;
+}
+.title_detail{
+    margin-top: 16px;
+    width: 80%;
+    font-size: 24px;
+    font-weight: bold;
+}
+.amount_detail{
+    margin-top: 32px;
+    font-size: 46px;
+}
+.amount_detail div{
+    font-size:0.5em;
+    vertical-align:top;
+    display: inline-flex;
+    margin-top: 6px
+}
+.btn_detail{
+    margin-top: 32px;
+    margin-right: 32px;
+    background-color: #3483FA;
+    color: white;
+    height: 50px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.btn_detail div{
+    margin: auto;
+}
+.dTitle_detail{
+    margin: 32px;
+    font-size: 28px;
+    color: #666666;
+}
+.description_detail{
+    margin-left: 32px;
+    margin-bottom: 16px;
+    font-size: 16px;
+    color: #999999;
+}
